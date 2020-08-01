@@ -33,11 +33,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link text-sm ml-3 active" href="#">Beranda <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link text-sm ml-3" href="#">Kontak Kami</a>
-                <button type="button" class="nav-item nav-link text-sm ml-7 btn btn-outline-warning" style="font-weight: bold" href="#">Dashboard</button>
-                <a class="nav-item nav-link text-sm ml-5" style="font-weight: bold" href="#">Login</a>
-                <a class="nav-item nav-link text-sm text-warning ml-0" href="#">Logout</a>
+                <a class="nav-item nav-link text-sm ml-3 active" href="/">Beranda <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link text-sm ml-3" href="/kontak">Kontak Kami</a>
+                <button type="button" class="nav-item nav-link text-sm ml-7 btn btn-outline-warning" style="font-weight: bold" href="/user">Dashboard</button>
+                <a class="nav-item nav-link text-sm ml-5" style="font-weight: bold" href="/login">Login</a>
+                <a class="nav-item nav-link text-sm text-warning ml-0" href="/logout">Logout</a>
 
             </div>
         </div>
@@ -49,35 +49,20 @@
     </div>
 
     <!-- Footer -->
-    <!-- Site footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
-                </div>
-
-                <div class="col-xs-6 col-md-3">
-                    <h6>Categories</h6>
-                    <ul class="footer-links">
-                        <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-                        <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-                        <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-                        <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-                        <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-                        <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
-                    </ul>
+                    <p class="text-justify">Big Ads marketplace iklan website termurah.</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                     <h6>Quick Links</h6>
                     <ul class="footer-links">
-                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                        <li><a href="http://scanfcode.com/about/">Home</a></li>
                         <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                        <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                        <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                        <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -87,16 +72,14 @@
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-                        <a href="#">Scanfcode</a>.
+                        <a href="#">Candra</a>.
                     </p>
                 </div>
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a class="facebook" href="https://www.facebook.com/bigger.adv.9"><i class="fab fa-facebook"></i></a></li>
+                        <li><a class="dribbble" href="https://www.instagram.com/bigger.adv/?hl=af"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>

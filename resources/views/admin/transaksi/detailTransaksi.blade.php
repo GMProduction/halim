@@ -78,15 +78,32 @@
                                                             <th scope="col" class="sort" data-sort="budget">Nama
                                                                 Kardus
                                                             </th>
-                                                            <th scope="col" class="sort" data-sort="completion">Bahan Kardus
+                                                            <th scope="col" class="sort" data-sort="completion">Bahan
+                                                                Kardus
                                                             </th>
-                                                            <th scope="col" class="sort" data-sort="completion">Tebal Kardus
+                                                            <th scope="col" class="sort" data-sort="completion">Tebal
+                                                                Kardus
                                                             </th>
                                                             <th scope="col" class="sort" data-sort="completion">Dimensi
                                                             </th>
-                                                            <th scope="col" class="sort" data-sort="completion">Harga /pcs
+                                                            <th scope="col" class="sort" data-sort="completion">Harga
+                                                                /pcs
                                                             </th>
+
+                                                            <th scope="col" class="sort" data-sort="completion">Status
+                                                            </th>
+
                                                             <th scope="col" class="sort" data-sort="completion">Gambar
+                                                            </th>
+
+                                                            <th scope="col" class="sort text-center"
+                                                                data-sort="completion">File Mentah
+                                                            </th>
+                                                            <th scope="col" class="sort text-center"
+                                                                data-sort="completion">File Jadi
+                                                            </th>
+                                                            <th scope="col" class="sort text-center"
+                                                                data-sort="completion">Action
                                                             </th>
                                                         </tr>
                                                         </thead>
@@ -118,8 +135,86 @@
                                                             </td>
 
                                                             <td class="budget">
+                                                                menunggu / design ok / ditolak
                                                             </td>
 
+                                                            <td class="text-center"><img
+                                                                    src="{{asset('assets/img/theme/angular.jpg')}}"
+                                                                    style="height: 50px"></td>
+
+                                                            <td class="text-center"><a
+                                                                    style="height: 100px; width: 100px; object-fit: cover"
+                                                                    href="{{asset('assets/img/slider/slide1.jpg')}}"
+                                                                    target="_blank">
+                                                                    <img
+                                                                        src="{{asset('assets/img/slider/slide1.jpg')}}"
+                                                                        style="height: 100px; width: 100px; object-fit: cover">
+                                                                </a></td>
+
+                                                            <td class="text-center"><a
+                                                                    style="height: 100px; width: 100px; object-fit: cover"
+                                                                    href="{{asset('assets/img/slider/slide1.jpg')}}"
+                                                                    target="_blank">
+                                                                    <img
+                                                                        src="{{asset('assets/img/slider/slide1.jpg')}}"
+                                                                        style="height: 100px; width: 100px; object-fit: cover">
+                                                                </a></td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-warning mt-0"
+                                                                        data-toggle="modal"
+                                                                        data-target="#exampleModalCenter">Upload
+                                                                </button>
+
+                                                                <!-- Modal -->
+                                                                <div class="modal fade" id="exampleModalCenter"
+                                                                     tabindex="-1" role="dialog"
+                                                                     aria-labelledby="exampleModalCenterTitle"
+                                                                     aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered"
+                                                                         role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalLongTitle">Kirim
+                                                                                    Gambar</h5>
+                                                                                <button type="button" class="close"
+                                                                                        data-dismiss="modal"
+                                                                                        aria-label="Close">
+                                                                                    <span
+                                                                                        aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-9">
+                                                                                        <a>Gambar</a>
+                                                                                        <div class="custom-file">
+                                                                                            <input type="file"
+                                                                                                   class="custom-file-input"
+                                                                                                   id="gambar"
+                                                                                                   name="gambar"
+                                                                                                   lang="en">
+                                                                                            <label
+                                                                                                class="custom-file-label"
+                                                                                                for="gambar">Select
+                                                                                                file</label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                        class="btn btn-secondary"
+                                                                                        data-dismiss="modal">Batal
+                                                                                </button>
+                                                                                <button type="button"
+                                                                                        class="btn btn-warning">Simpan
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -166,15 +261,19 @@
                                                             </td>
 
                                                             <td class="budget">
-                                                               Juh
+                                                                Juh
                                                             </td>
 
                                                             <td class="budget">
-                                                               BCA
+                                                                BCA
                                                             </td>
 
                                                             <td class="budget">
-                                                                GAMBAR
+                                                                <a style="height: 50px"
+                                                                   href="{{asset('assets/img/theme/angular.jpg')}}"><img
+                                                                        src="{{asset('assets/img/theme/angular.jpg')}}"
+                                                                        style="height: 50px">
+                                                                </a>
                                                             </td>
                                                             <td class="budget">
                                                                 <a class="btn btn-sm btn-success">Terima</a>
@@ -201,7 +300,8 @@
 
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="tanggalPinjam">Tanggal Pesan</label>
+                                                <label class="form-control-label" for="tanggalPinjam">Tanggal
+                                                    Pesan</label>
                                                 <input type="text" id="tanggalPinjam" name="tanggalPinjam" readonly
                                                        class="form-control" value="">
                                             </div>

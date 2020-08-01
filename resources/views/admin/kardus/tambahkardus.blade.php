@@ -53,7 +53,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label  for="tebal">Tebal Kardus</label>
+                                            <label  for="tebal">Tebal Bahan Kardus /mm</label>
                                             <input type="number" id="tebal" name="tebal"
                                                    class="form-control">
                                         </div>
@@ -91,7 +91,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="keteranganJadwal" for="minbeli">Minimum Pembelian (pcs)</label>
+                                            <input type="number" id="minbeli" name="minbeli"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
                                         <a>Gambar</a>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="gambar"

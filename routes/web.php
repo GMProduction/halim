@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/cart', function () {
+    return view('cart');
+});
+
 Route::get('/admin', function () {
     return view('admin.dashboard');
 });
@@ -37,6 +41,10 @@ Route::get('/admin/detailpesanan', function () {
     return view('admin.transaksi.detailTransaksi');
 });
 
+Route::get('/admin/user', function () {
+    return view('admin.user.user');
+});
+
 //USER
 Route::get('/user', function () {
     return view('user.dashboard');
@@ -44,6 +52,10 @@ Route::get('/user', function () {
 
 Route::get('/user/transaksi', function () {
     return view('user.transaksi.transaksi');
+});
+
+Route::get('/user/detailtransaksi', function () {
+    return view('user.transaksi.detailtransaksi');
 });
 
 Route::get('/user/profile', function () {

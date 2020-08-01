@@ -56,6 +56,12 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/admin/user">
+                            <i data-feather="user"></i>
+                            <span class="nav-link-text" style="margin-left: 10px">Data User</span>
+                        </a>
+                    </li>
 
 
                 </ul>

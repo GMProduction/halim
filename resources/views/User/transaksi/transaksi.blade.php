@@ -18,21 +18,21 @@
 
                     <div class="col-lg-8 col-8">
                         <div class="row">
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="dariLelang" class="form-control-label text-white">Dari</label>
-                                    <input class="form-control" type="date" id="dariLelang" name="dariLelang">
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="sampaiLelang" class="form-control-label text-white">Sampai</label>
-                                    <input class="form-control" type="date" id="sampaiLelang" name="sampaiLelang">
-                                </div>
-                            </div>
-                            <div class="col-lg-2 mt-auto mb-auto">
-                                <a href="/user/transaksi/cetak" class="btn btn-md btn-neutral">Cetak</a>
-                            </div>
+{{--                            <div class="col-lg-4">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="dariLelang" class="form-control-label text-white">Dari</label>--}}
+{{--                                    <input class="form-control" type="date" id="dariLelang" name="dariLelang">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-4">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="sampaiLelang" class="form-control-label text-white">Sampai</label>--}}
+{{--                                    <input class="form-control" type="date" id="sampaiLelang" name="sampaiLelang">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-2 mt-auto mb-auto">--}}
+{{--                                <a href="/user/transaksi/cetak" class="btn btn-md btn-neutral">Cetak</a>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="" class="btn btn-sm btn-primary">Konfirmasi pembayaran</a>
+                                    <a href="/user/detailtransaksi" class="btn btn-sm btn-primary">Detail</a>
                                 </td>
                             </tr>
                             </tbody>

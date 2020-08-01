@@ -22,9 +22,11 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort text-center" data-sort="name">#</th>
-                                <th scope="col" class="sort text-center" data-sort="completion">Gambar</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">Gambar Kardus Kosong</th>
                                 <th scope="col" class="sort text-center" data-sort="budget">Nama Kardus</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Qty</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Harga /pcs</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">File Mentah</th>
                             </tr>
                             </thead>
                             <tbody class="list">
@@ -35,7 +37,13 @@
                                         src="{{asset('assets/img/slider/slide1.jpg')}}"
                                         style="height: 100px; width: 100px; object-fit: cover"></td>
                                 <td class="text-center">Kardus Glossy Kubik Kecil</td>
+                                <td class="text-center">1000 pcs</td>
                                 <td class="text-center"> Rp 1.000,-</td>
+                                <td class="text-center"><a style="height: 100px; width: 100px; object-fit: cover" href="{{asset('assets/img/slider/slide1.jpg')}}" target="_blank">
+                                        <img
+                                            src="{{asset('assets/img/slider/slide1.jpg')}}"
+                                            style="height: 100px; width: 100px; object-fit: cover">
+                                    </a></td>
 
                             </tr>
                             {{--                    @endforeach--}}

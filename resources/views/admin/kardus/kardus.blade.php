@@ -1,23 +1,32 @@
 @extends('admin.base')
 @section('content')
 
+    @if(\Illuminate\Support\Facades\Session::has('success'))
+        <script>
+            Swal.fire({
+                title: 'Success',
+                text: 'Berhasil Menyimpan Data',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        </script>
+    @endif
     <!-- Header -->
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
             <div class="header-body">
                 <div class="row align-items-center py-4">
-                    <div class="col-lg-4 col-4">
+                    <div class="col-lg-6 col-7">
                         <h6 class="h2 text-white d-inline-block mb-0">Data Kardus</h6>
-                        {{--                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">--}}
-                        {{--                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">--}}
-                        {{--                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>--}}
-                        {{--                                <li class="breadcrumb-item"><a href="#">Data Kardus</a></li>--}}
-                        {{--                            </ol>--}}
-                        {{--                        </nav>--}}
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#">Data Kardus</a></li>
+                            </ol>
+                        </nav>
                     </div>
-
-                    <div class="col-lg-8 col-8 text-right">
-                        <a href="/admin/tambahkardus" class="btn btn-md btn-neutral">Tambah</a>
+                    <div class="col-lg-6 col-5 text-right">
+                        <a href="/admin/tambahkardus" class="btn btn-md btn-neutral">Tambah Data</a>
                     </div>
                 </div>
             </div>
@@ -30,87 +39,53 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Tabel Kardus</h3>
+                        <h3 class="mb-0">Tabel kardus</h3>
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
+                        <table id="tabel" class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="sort" data-sort="name">#</th>
-                                <th scope="col" class="sort" data-sort="budget">Nama Kardus</th>
-                                <th scope="col" class="sort" data-sort="budget">Bahan Kardus</th>
-                                <th scope="col" class="sort" data-sort="status">Tebal Kardus</th>
-                                <th scope="col" class="sort" data-sort="status">Dimensi</th>
-                                <th scope="col" class="sort" data-sort="status">Harga /pcs</th>
-                                <th scope="col" class="sort" data-sort="status">Gambar</th>
-                                <th scope="col" class="sort" data-sort="status">Action</th>
+                                <th scope="col" class="sort text-center" data-sort="name">#</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Nama Kardus</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Bahan Kardus</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Tebal Bahan /mm</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Ukuran</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Harga /pcs</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Min. Pembelian</th>
+                                <th scope="col" class="sort text-center" data-sort="budget">Gambar</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">Action</th>
                             </tr>
                             </thead>
                             <tbody class="list">
+                            {{--                            @foreach($gallery as $p)--}}
                             <tr>
-
-                                <td class="budget">
-                                    1
-                                </td>
-
-                                <td class="budget">
-                                    Kardus Glossy Kubik Kecil
-                                </td>
-
-                                <td class="budget">
-                                    Glosy
-                                </td>
-
-                                <td class="budget">
-                                    0.2mm
-                                </td>
-
-                                <td class="budget">
-                                    10 x 10 x 10 cm
-                                </td>
-
-                                <td class="budget">
-                                    Rp. 1.000
-                                </td>
-
-                                <td class="budget">
-
-                                </td>
-
-                                <td>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                <td class="text-center">1</td>
+                                <td class="text-center">Kardus Kubus Kecil</td>
+                                <td class="text-center">Art Karton 90gr</td>
+                                <td class="text-center">3 mm</td>
+                                <td class="text-center">10x10x10 cm</td>
+                                <td class="text-center">Rp 1.000 /pcs</td>
+                                <td class="text-center">1000 pcs</td>
+                                <td class="text-center"><img src="{{asset('assets/img/theme/angular.jpg')}}" style="height: 50px"></td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only btn-primary text-light" href="#" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="">Edit</a>
+                                            <a class="dropdown-item" href="#!">Delete</a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
+                            {{--                            @endforeach--}}
                             </tbody>
                         </table>
                     </div>
                     <!-- Card footer -->
-                    <div class="card-footer py-4">
-                        <nav aria-label="...">
-                            <ul class="pagination justify-content-end mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">
-                                        <i class="fas fa-angle-left"></i>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="fas fa-angle-right"></i>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
                 </div>
             </div>
         </div>
@@ -119,6 +94,31 @@
 @endsection
 
 @section('script')
+    <script>
+        $(document).ready(function () {
+            $('#tabel').DataTable();
+        });
 
+
+        function hapus(id, name) {
+            Swal.fire({
+                title: 'Apa anda yakin untuk menghapus gallery ?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak'
+            }).then(async (result) => {
+                if (result.value) {
+                    let data = {
+                        '_token' : '{{csrf_token()}}'
+                    };
+                    let get = await $.post('/admin/gallery/hapus/'+id,data);
+                    window.location.reload();
+                }
+            })
+        }
+    </script>
 
 @endsection

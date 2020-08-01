@@ -36,9 +36,9 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/user/">
+                        <a class="nav-link active" href="/">
                             <i data-feather="menu"></i>
-                            <span class="nav-link-text" style="margin-left: 10px">Dashboard</span>
+                            <span class="nav-link-text" style="margin-left: 10px">Beranda</span>
                         </a>
                     </li>
 
