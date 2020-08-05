@@ -29,22 +29,24 @@
                     </tr>
                     </thead>
                     <tbody class="list">
-                    {{--                    @foreach($produk as $p)--}}
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td class="text-center"><img
-                                src="{{asset('assets/img/slider/slide1.jpg')}}"
-                                style="height: 100px; width: 100px; object-fit: cover"></td>
-                        <td class="text-center">Kardus Glossy Kubik Kecil</td>
-                        <td class="text-center">1000 pcs</td>
-                        <td class="text-center"> Rp 1.000,-</td>
-                        <td class="text-center"><a style="height: 100px; width: 100px; object-fit: cover" href="{{asset('assets/img/slider/slide1.jpg')}}" target="_blank">
-                                <img
-                                    src="{{asset('assets/img/slider/slide1.jpg')}}"
-                                    style="height: 100px; width: 100px; object-fit: cover">
-                            </a></td>
+                    @foreach($carts as $v)
+                        <tr>
+                            <td class="text-center">{{ $loop->index + 1 }}</td>
+                            <td class="text-center"><img
+                                    src="{{asset('/uploads/image')}}/{{ $v->product->url }}"
+                                    style="height: 100px; width: 100px; object-fit: cover"></td>
+                            <td class="text-center">{{ $v->product->nama }}</td>
+                            <td class="text-center">{{ $v->qty }} pcs</td>
+                            <td class="text-center"> Rp {{ number_format($v->harga, 0, ',', '.') }},-</td>
+                            <td class="text-center"><a style="height: 100px; width: 100px; object-fit: cover"
+                                                       href="{{asset('/uploads/order')}}/{{ $v->url }}" target="_blank">
+                                    <img
+                                        src="{{asset('/uploads/order')}}/{{ $v->url }}"
+                                        style="height: 100px; width: 100px; object-fit: cover">
+                                </a></td>
 
-                    </tr>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -65,22 +67,21 @@
                 <div class="col-lg-12">
                     <div class="card p-3">
 
-{{--                        <div class="col-lg-12 mt-5">--}}
-{{--                        <div>Rincian Sewa = <span id="temp-sub">0</span> x ( <span id="lama">0</span> ) Hari = Rp. <span--}}
-{{--                                id="temp-tot">0</span></div>--}}
-{{--                        </div>--}}
-
+                        {{--                        <div class="col-lg-12 mt-5">--}}
+                        {{--                        <div>Rincian Sewa = <span id="temp-sub">0</span> x ( <span id="lama">0</span> ) Hari = Rp. <span--}}
+                        {{--                                id="temp-tot">0</span></div>--}}
+                        {{--                        </div>--}}
 
 
                         <div class="col-lg-12 ">
                             <div class="form-group">
                                 <label for="subTotal">Total</label>
                                 <input type="text" readonly id="subTotal" name="subTotal"
-                                       class="form-control">
+                                       class="form-control" value="Rp. {{ number_format($subTotal, 0, ',', '.') }}">
                             </div>
                         </div>
                         <div class="col-lg-2 mt-auto mb-auto ml-auto">
-                            <a href="#" onclick="addToCart()" class="btn btn-md btn-warning">Check Out</a>
+                            <button id="btn-cekout" type="button" class="btn btn-md btn-warning">Check Out</button>
                         </div>
 
                     </div>
@@ -93,76 +94,25 @@
 @endsection
 
 @section('script')
-{{--    <script>--}}
-{{--        let subtotal = 0, diskon = 0, total = 0, lama = 0;--}}
-{{--        var date_diff_indays = function (date1, date2) {--}}
-{{--            dt1 = new Date(date1);--}}
-{{--            dt2 = new Date(date2);--}}
-{{--            return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));--}}
-{{--        };--}}
+    <script>
+        $(document).ready(function () {
 
-{{--        function hitungTotal() {--}}
-{{--            let tgl1 = $('#sewa').val();--}}
-{{--            let tgl2 = $('#kembali').val();--}}
-{{--            let tempSubTotal = '{{ $product->harga }}';--}}
-{{--            lama = date_diff_indays(tgl1, tgl2);--}}
-{{--            subtotal = tempSubTotal * lama;--}}
-{{--            $('#subTotal').val("Rp. " +subtotal);--}}
-{{--            $('#harga').val("Rp. " +tempSubTotal);--}}
-{{--            $('#lamanya').val(lama + " hari");--}}
-{{--            $('#temp-sub').html(tempSubTotal);--}}
-{{--            $('#lama').html(lama);--}}
-{{--            $('#temp-tot').html(subtotal);--}}
-{{--        }--}}
-
-{{--        async function addToCart() {--}}
-{{--            event.preventDefault();--}}
-{{--            let data = {--}}
-{{--                '_token': "{{ csrf_token() }}",--}}
-{{--                id: '{{ $product->id }}',--}}
-{{--                harga: subtotal,--}}
-{{--                sewa: $('#sewa').val(),--}}
-{{--                kembali: $('#kembali').val()--}}
-{{--            };--}}
-{{--            try {--}}
-{{--                let res = await $.post('/ajax/addToCart', data);--}}
-{{--                alert('Transaksi Berhasil')--}}
-{{--                window.location.href = '/payment/' + res['payload'];--}}
-{{--            } catch (e) {--}}
-{{--                alert('Transaksi Gagal')--}}
-{{--            }--}}
-{{--        }--}}
-
-{{--        $(document).ready(function () {--}}
-{{--            hitungTotal();--}}
-{{--            $('#sewa').on('change', function () {--}}
-{{--                hitungTotal();--}}
-{{--            });--}}
-{{--            $('#kembali').on('change', function () {--}}
-{{--                hitungTotal();--}}
-{{--            });--}}
-
-
-{{--            $('#btn-cekout').on('click', async function (e) {--}}
-{{--                e.preventDefault();--}}
-{{--                let code = $('#voucher').val();--}}
-{{--                let data = {--}}
-{{--                    '_token': '{{ csrf_token() }}',--}}
-{{--                    diskon: $('#diskon').val(),--}}
-{{--                    nominal: $('#total').val(),--}}
-{{--                    sewa: $('#sewa').val(),--}}
-{{--                    kembali: $('#kembali').val(),--}}
-{{--                };--}}
-{{--                let res = await $.post('/ajax/cekout', data);--}}
-{{--                if (res['status'] === 200 && res['payload'] !== null) {--}}
-{{--                    let id = res['payload'];--}}
-{{--                    alert('Sewa Berhasil');--}}
-{{--                    window.location.href = '/payment/' + id;--}}
-{{--                } else {--}}
-{{--                    alert('Sewa gagal');--}}
-{{--                }--}}
-{{--            });--}}
-{{--        });--}}
-{{--    </script>--}}
+            $('#btn-cekout').on('click', async function (e) {
+                e.preventDefault();
+                let data = {
+                    '_token': '{{ csrf_token() }}',
+                    nominal: '{{ $subTotal }}',
+                };
+                let res = await $.post('/ajax/cekout', data);
+                if (res['status'] === 200 && res['payload'] !== null) {
+                    let id = res['payload'];
+                    alert('Cek Out Berhasil');
+                    window.location.href = '/payment/'+id;
+                } else {
+                    alert('Cek Out gagal');
+                }
+            });
+        });
+    </script>
 
 @endsection

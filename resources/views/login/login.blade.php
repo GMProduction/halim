@@ -59,7 +59,7 @@
                         <div class="text-center text-muted mb-4">
                             <small>Masukan user dan password</small>
                         </div>
-                        <form method="post" action="/post-login">
+                        <form role="form" action="/post-login" method="post">
                             @csrf
                             <div class="form-group mb-3">
                                 <div class="input-group input-group-merge input-group-alternative">

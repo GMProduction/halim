@@ -9,7 +9,7 @@
         <div class="carousel-inner text-center">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="First slide"
-                    style="height: 550px; object-fit: cover">
+                     style="height: 550px; object-fit: cover">
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="{{asset('assets/img/slider/slide2.jpg')}}" alt="Second slide"
@@ -41,140 +41,19 @@
 
     <section class="container">
         <div class="row">
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
+            @foreach($products as $v)
+                <div class="col-3">
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset('/uploads/image')}}/{{$v->url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">{{ $v->nama }}</h5>
+                            <h4 class="card-title text-warning mt-1 mb-2">Rp {{ number_format($v->harga, 0, ',', '.') }} /pcs</h4>
+                            <p class="card-text">{{ $v->deskripsi }}</p>
+                            <a href="/product/{{ $v->id }}" class="btn btn-warning">Detail</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" >
-                    <img class="card-img-top" src="{{asset('assets/img/slider/slide1.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Kardus Glossy Kubik Kecil</h5>
-                        <h4 class="card-title text-warning mt-1 mb-2">Rp 1.000 /pcs</h4>
-                        <p class="card-text">deskripsi produk deskripsi produk deskripsi produk deskripsi produk</p>
-                        <a href="#" class="btn btn-warning">Detail</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
