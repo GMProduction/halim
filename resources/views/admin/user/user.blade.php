@@ -16,7 +16,7 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-{{--                        <a href="/admin/tambahuser" class="btn btn-md btn-neutral">Tambah Data</a>--}}
+                        {{--                        <a href="/admin/tambahuser" class="btn btn-md btn-neutral">Tambah Data</a>--}}
                     </div>
                 </div>
             </div>
@@ -44,16 +44,15 @@
                             </tr>
                             </thead>
                             <tbody class="list">
-                            {{--                            @foreach($kategori as $p)--}}
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Topil</td>
-                                <td class="text-center">009812039</td>
-                                <td class="text-center">Phone</td>
-                                <td class="text-center">email@gmail.com</td>
-
-                            </tr>
-                            {{--                            @endforeach--}}
+                            @foreach($user as $p)
+                                <tr>
+                                    <td class="text-center">{{$loop->index+1}}</td>
+                                    <td class="text-center">{{$p->nama}}</td>
+                                    <td class="text-center">{{$p->phone}}</td>
+                                    <td class="text-center">{{$p->alamat}}</td>
+                                    <td class="text-center">{{$p->email}}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -66,6 +65,10 @@
 @endsection
 
 @section('script')
-
+<script>
+    $(document).ready(function () {
+        $('#tabel').DataTable();
+    });
+</script>
 
 @endsection

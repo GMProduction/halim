@@ -1,6 +1,15 @@
 @extends('admin.base')
 @section('content')
-
+    @if(\Illuminate\Support\Facades\Session::has('success'))
+        <script>
+            Swal.fire({
+                title: 'Success',
+                text: 'Berhasil Menyimpan Data',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        </script>
+    @endif
     <!-- Header -->
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
@@ -11,7 +20,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="/mitra/kardus">Data Kardus</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/kardus">Data Kardus</a></li>
                                 <li class="breadcrumb-item"><a href="#">Tambah Data</a></li>
                             </ol>
                         </nav>
@@ -29,7 +38,7 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <form action="/mitra/kardus/store" method="POST">
+                        <form method="POST" enctype="multipart/form-data">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Data</h6>
                             <div class="pl-lg-4">
@@ -38,14 +47,14 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="namaKardus">Nama Kardus</label>
-                                            <input type="text" id="namaKardus" name="namaKardus"
+                                            <input type="text" id="namaKardus" name="nama"
                                                    class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group col-lg-6">
                                         <label for="bahanKardus">Bahan Kardus</label>
-                                        <select class="form-control" id="bahanKardus" name="bahanKardus">
+                                        <select class="form-control" id="bahanKardus" name="bahan">
                                             <option value="glossy">Glossy</option>
                                             <option value="karton">Karton</option>
                                         </select>
@@ -62,7 +71,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label  for="tebal">Harga /pcs</label>
-                                            <input type="number" id="tebal" name="tebal"
+                                            <input type="number" id="harga" name="harga"
                                                    class="form-control">
                                         </div>
                                     </div>
@@ -94,7 +103,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="keteranganJadwal" for="minbeli">Minimum Pembelian (pcs)</label>
-                                            <input type="number" id="minbeli" name="minbeli"
+                                            <input type="number" id="minbeli" name="minimum"
                                                    class="form-control">
                                         </div>
                                     </div>

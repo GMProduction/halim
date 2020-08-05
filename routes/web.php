@@ -25,25 +25,19 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/kardus', function () {
-    return view('admin.kardus.kardus');
-});
+Route::get('/admin/kardus', 'Admin\ProdukController@index');
+Route::get('/admin/kardus/tambahkardus', 'Admin\ProdukController@addForm');
+Route::post('/admin/kardus/tambahkardus', 'Admin\ProdukController@addForm');
+Route::get('/admin/kardus/editkardus/{id}', 'Admin\ProdukController@editForm');
+Route::post('/admin/kardus/editkardus/{id}', 'Admin\ProdukController@editForm');
+Route::post('/admin/kardus/hapus/{id}', 'Admin\ProdukController@hapus');
 
-Route::get('/admin/tambahkardus', function () {
-    return view('admin.kardus.tambahkardus');
-});
 
-Route::get('/admin/transaksi', function () {
-    return view('admin.transaksi.transaksi');
-});
+Route::get('/admin/transaksi', 'Admin\TransaksiController@index');
+Route::get('/admin/transaksi/detailpesanan/{id}', 'Admin\TransaksiController@detail');
+Route::post('/admin/transaksi/detailpesanan/{id}', 'Admin\TransaksiController@detail');
 
-Route::get('/admin/detailpesanan', function () {
-    return view('admin.transaksi.detailTransaksi');
-});
-
-Route::get('/admin/user', function () {
-    return view('admin.user.user');
-});
+Route::get('/admin/user', 'Admin\UserController@index');
 
 //USER
 Route::get('/user', function () {
@@ -83,3 +77,7 @@ Route::get('/daftaruser', function () {
 });
 Route::get('/user/transaksi/cetak', 'LaporanController@cetakUserDataTransaksi')->name('cetakUserDataTransaksi');
 Route::get('/admin/transaksi/cetak', 'LaporanController@cetakAdminDataTransaksi')->name('cetakAdminDataTransaksi');
+
+Route::post('/post-register', 'Auth\AuthController@register');
+Route::post('/post-login', 'Auth\AuthController@login');
+Route::get('/logout', 'Auth\AuthController@logout');

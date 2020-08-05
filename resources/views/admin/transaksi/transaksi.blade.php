@@ -50,84 +50,37 @@
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
+                        <table id="tabel" class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="name">#</th>
-                                <th scope="col" class="sort" data-sort="budget">Nama Kardus</th>
+                                <th scope="col" class="sort" data-sort="budget">No. Transaksi</th>
                                 <th scope="col" class="sort" data-sort="status">Tanggal</th>
                                 <th scope="col" class="sort" data-sort="status">Pembayaran</th>
                                 <th scope="col" class="sort" data-sort="status">Status</th>
-                                <th scope="col" class="sort" data-sort="status">Jumlah Kardus</th>
                                 <th scope="col" class="sort" data-sort="status">Total Harga</th>
                                 <th scope="col" class="sort" data-sort="status">Action</th>
                             </tr>
                             </thead>
                             <tbody class="list">
-                            <tr>
-
-                                <td class="budget">
-                                    1
-                                </td>
-
-                                <td class="budget">
-                                    Kardus Glossy Kubik Kecil
-                                </td>
-
-                                <td class="budget">
-                                    27 Juli 2020
-                                </td>
-
-                                <td class="budget">
-                                    Belum / Sudah
-                                </td>
-
-
-                                <td class="budget">
-                                    Belum di konfirmasi / menunggu tayang / sedang tayang / selesai
-                                </td>
-
-                                <td class="budget">
-                                    250
-                                </td>
-
-                                <td class="budget">
-                                    250.000
-                                </td>
-
-                                <td>
-                                    <a href="/admin/detailpesanan" class="btn btn-sm btn-primary">Detail</a>
-                                </td>
-                            </tr>
+                            @foreach($transaksi as $p)
+                                <tr>
+                                    <td class="budget">{{$loop->index+1}}</td>
+                                    <td class="budget">{{$p->no_transaksi}}</td>
+                                    <td class="budget">{{$p->created_at}}</td>
+                                    <td class="budget">{{$p->last_payment == null ? 'Belum ada' : ($p->last_payment == '0' ? 'Menunggu' : ($p->last_payment == '1' ? 'Diterima' : 'Ditolak')) }}</td>
+                                    <td class="budget">{{$p->status == '0' ? 'Menunggu' : ($p->status == '1' ? 'Proses' : ($p->status == '2' ? 'Selesai' : 'Tolak'))}}</td>
+                                    <td class="budget">Rp. {{number_format($p->nominal,0,',','.')}}</td>
+                                    <td>
+                                        <a href="/admin/transaksi/detailpesanan/{{$p->id}}" class="btn btn-sm btn-primary">Detail</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
                     <!-- Card footer -->
-                    <div class="card-footer py-4">
-                        <nav aria-label="...">
-                            <ul class="pagination justify-content-end mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">
-                                        <i class="fas fa-angle-left"></i>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="fas fa-angle-right"></i>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -136,6 +89,10 @@
 @endsection
 
 @section('script')
-
+    <script>
+        $(document).ready(function () {
+            $('#tabel').DataTable();
+        });
+    </script>
 
 @endsection
