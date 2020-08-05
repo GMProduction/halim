@@ -18,21 +18,21 @@
 
                     <div class="col-lg-8 col-8">
                         <div class="row">
-{{--                            <div class="col-lg-4">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label for="dariLelang" class="form-control-label text-white">Dari</label>--}}
-{{--                                    <input class="form-control" type="date" id="dariLelang" name="dariLelang">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-lg-4">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label for="sampaiLelang" class="form-control-label text-white">Sampai</label>--}}
-{{--                                    <input class="form-control" type="date" id="sampaiLelang" name="sampaiLelang">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-lg-2 mt-auto mb-auto">--}}
-{{--                                <a href="/user/transaksi/cetak" class="btn btn-md btn-neutral">Cetak</a>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="col-lg-4">--}}
+                            {{--                                <div class="form-group">--}}
+                            {{--                                    <label for="dariLelang" class="form-control-label text-white">Dari</label>--}}
+                            {{--                                    <input class="form-control" type="date" id="dariLelang" name="dariLelang">--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="col-lg-4">--}}
+                            {{--                                <div class="form-group">--}}
+                            {{--                                    <label for="sampaiLelang" class="form-control-label text-white">Sampai</label>--}}
+                            {{--                                    <input class="form-control" type="date" id="sampaiLelang" name="sampaiLelang">--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="col-lg-2 mt-auto mb-auto">--}}
+                            {{--                                <a href="/user/transaksi/cetak" class="btn btn-md btn-neutral">Cetak</a>--}}
+                            {{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="name">#</th>
-                                <th scope="col" class="sort" data-sort="budget">Nama Kardus</th>
+                                <th scope="col" class="sort" data-sort="budget">No. Transaksi</th>
                                 <th scope="col" class="sort" data-sort="status">Tanggal</th>
                                 <th scope="col" class="sort" data-sort="status">Pembayaran</th>
                                 <th scope="col" class="sort" data-sort="status">Status</th>
@@ -64,41 +64,52 @@
                             </tr>
                             </thead>
                             <tbody class="list">
-                            <tr>
+                            @foreach($transaction as $v)
+                                <tr>
+                                    <td class="text-center">{{ $loop->index + 1 }}</td>
+                                    <td class="text-center">{{ $v->no_transaksi }}</td>
+                                    <td class="text-center">{{ $v->created_at }}</td>
+                                    <td class="text-center">
+                                        @switch($v->payment[0]->status)
+                                            @case('0')
+                                            Menunggu Konfirmasi
+                                            @break
+                                            @case('1')
+                                            Di Terima
+                                            @break
+                                            @case('2')
+                                            Di Tolak
+                                            @break
+                                            @default
+                                            @break
+                                        @endswitch
+                                    </td>
+                                    <td class="text-center">
+                                        @switch($v->status)
+                                            @case('0')
+                                            Menunggu Konfirmasi
+                                            @break
+                                            @case('1')
+                                            Di Terima
+                                            @break
+                                            @case('2')
+                                            Di Tolak
+                                            @break
+                                            @default
+                                            @break
+                                        @endswitch
+                                    </td>
+                                    <td class="text-center">Rp {{ number_format($v->nominal, 0, ',', '.')}}</td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-sm btn-success" href="/user/pesanan/{{ $v->id }}">
+                                                Detail
+                                            </a>
 
-                                <td class="budget">
-                                    1
-                                </td>
-
-                                <td class="budget">
-                                    Kardus Glossy Kubik Kecil
-                                </td>
-
-                                <td class="budget">
-                                    27 Juli 2020
-                                </td>
-
-                                <td class="budget">
-                                    Belum / Sudah
-                                </td>
-
-
-                                <td class="budget">
-                                    Belum di konfirmasi / menunggu tayang / sedang tayang / selesai
-                                </td>
-
-                                <td class="budget">
-                                    250
-                                </td>
-
-                                <td class="budget">
-                                    250.000
-                                </td>
-
-                                <td>
-                                    <a href="/user/detailtransaksi" class="btn btn-sm btn-primary">Detail</a>
-                                </td>
-                            </tr>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

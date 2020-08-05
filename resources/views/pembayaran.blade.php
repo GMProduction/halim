@@ -22,7 +22,8 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort text-center" data-sort="name">#</th>
-                                <th scope="col" class="sort text-center" data-sort="completion">Gambar Kardus Kosong</th>
+                                <th scope="col" class="sort text-center" data-sort="completion">Gambar Kardus Kosong
+                                </th>
                                 <th scope="col" class="sort text-center" data-sort="budget">Nama Kardus</th>
                                 <th scope="col" class="sort text-center" data-sort="budget">Qty</th>
                                 <th scope="col" class="sort text-center" data-sort="completion">Harga /pcs</th>
@@ -30,23 +31,25 @@
                             </tr>
                             </thead>
                             <tbody class="list">
-                            {{--                    @foreach($produk as $p)--}}
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center"><img
-                                        src="{{asset('assets/img/slider/slide1.jpg')}}"
-                                        style="height: 100px; width: 100px; object-fit: cover"></td>
-                                <td class="text-center">Kardus Glossy Kubik Kecil</td>
-                                <td class="text-center">1000 pcs</td>
-                                <td class="text-center"> Rp 1.000,-</td>
-                                <td class="text-center"><a style="height: 100px; width: 100px; object-fit: cover" href="{{asset('assets/img/slider/slide1.jpg')}}" target="_blank">
-                                        <img
-                                            src="{{asset('assets/img/slider/slide1.jpg')}}"
-                                            style="height: 100px; width: 100px; object-fit: cover">
-                                    </a></td>
+                            @foreach($transaction->cart as $v)
+                                <tr>
+                                    <td class="text-center">{{ $loop->index + 1 }}</td>
+                                    <td class="text-center"><img
+                                            src="{{ asset('/uploads/image') }}/{{ $v->product->url }}"
+                                            style="height: 100px; width: 100px; object-fit: cover"></td>
+                                    <td class="text-center">{{ $v->product->nama }}</td>
+                                    <td class="text-center">{{ $v->qty }} pcs</td>
+                                    <td class="text-center"> Rp {{ number_format($v->harga, 0, ',', '.') }},-</td>
+                                    <td class="text-center"><a style="height: 100px; width: 100px; object-fit: cover"
+                                                               href="{{asset('/uploads/order')}}/{{ $v->url }}"
+                                                               target="_blank">
+                                            <img
+                                                src="{{asset('/uploads/order')}}/{{ $v->url }}"
+                                                style="height: 100px; width: 100px; object-fit: cover">
+                                        </a></td>
 
-                            </tr>
-                            {{--                    @endforeach--}}
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -62,7 +65,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="tanggalPinjam">Tanggal Pesan</label>
                                     <input type="text" id="tanggalPinjam" name="tanggalPinjam" readonly
-                                           class="form-control" value="">
+                                           class="form-control" value="{{ $transaction->created_at }}">
                                 </div>
                             </div>
 
@@ -70,7 +73,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="total">Total Harga</label>
                                     <input type="text" id="total" name="total" readonly
-                                           class="form-control" value="">
+                                           class="form-control" value="Rp {{ number_format($transaction->nominal, 0, ',', '.') }}">
                                 </div>
                             </div>
                         </div>
@@ -90,8 +93,9 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data">
+                        <form method="POST" enctype="multipart/form-data" action="/payment/send">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $transaction->id }}">
                             <h6 class="heading-small text-muted mb-4">Data</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
@@ -99,8 +103,9 @@
                                     <div class="form-group col-lg-12">
                                         <label for="bank">Bank</label>
                                         <select class="form-control" id="bank" name="bank">
-                                            <option value="bca">BCA</option>
-                                            <option value="bri">BRI</option>
+                                            @foreach($vendors as $v)
+                                                <option value="{{ $v->id }}">{{ $v->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 

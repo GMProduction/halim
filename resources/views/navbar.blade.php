@@ -35,10 +35,14 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link text-sm ml-3 active" href="/">Beranda <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link text-sm ml-3" href="/kontak">Kontak Kami</a>
-                <button type="button" class="nav-item nav-link text-sm ml-7 btn btn-outline-warning" style="font-weight: bold" href="/user">Dashboard</button>
-                <a class="nav-item nav-link text-sm ml-5" style="font-weight: bold" href="/login">Login</a>
-                <a class="nav-item nav-link text-sm text-warning ml-0" href="/logout">Logout</a>
 
+                @auth()
+                    <a class="nav-item nav-link text-sm ml-7 btn btn-outline-warning" style="font-weight: bold" href="/user">Dashboard</a>
+                    <a class="nav-item nav-link text-sm text-warning ml-0" href="/logout">Logout</a>
+                @endauth
+                @guest()
+                    <a class="nav-item nav-link text-sm ml-5" style="font-weight: bold" href="/login">Login</a>
+                @endguest
             </div>
         </div>
     </nav>

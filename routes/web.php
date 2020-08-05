@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/', 'Main\MainController@index');
+Route::get('/product/{id}', 'Main\MainController@detail');
+Route::post('/addToCart', 'Main\TransactionController@addToCart');
+Route::get('/cart', 'Main\TransactionController@cartPage');
+Route::post('/ajax/cekout', 'Main\TransactionController@cekOut');
+Route::get('/payment/{id}', 'Main\TransactionController@pagePayment');
+Route::post('/payment/send', 'Main\TransactionController@send');
 
 Route::get('/admin', function () {
     return view('admin.dashboard');
@@ -46,21 +46,11 @@ Route::get('/admin/user', function () {
 });
 
 //USER
-Route::get('/user', function () {
-    return view('user.dashboard');
-});
-
-Route::get('/user/transaksi', function () {
-    return view('user.transaksi.transaksi');
-});
-
-Route::get('/user/detailtransaksi', function () {
-    return view('user.transaksi.detailtransaksi');
-});
-
-Route::get('/user/profile', function () {
-    return view('user.profil.profil');
-});
+Route::get('/user', 'Main\MainController@dashboard');
+Route::get('/user/pesanan', 'Main\TransactionController@pageTransaksi');
+Route::get('/user/pesanan/{id}', 'Main\TransactionController@detailHistory');
+Route::get('/user/profil', 'Main\MainController@profile');
+Route::post('/user/profil/update', 'Main\MainController@updateProfile');
 
 Route::get('/detail', function () {
     return view('detail');
@@ -81,5 +71,10 @@ Route::get('/login', function () {
 Route::get('/daftaruser', function () {
     return view('login.daftaruser');
 });
+
+Route::post('/post-register', 'Auth\AuthController@register');
+Route::post('/post-login', 'Auth\AuthController@login');
+Route::get('/logout', 'Auth\AuthController@logout');
+
 Route::get('/user/transaksi/cetak', 'LaporanController@cetakUserDataTransaksi')->name('cetakUserDataTransaksi');
 Route::get('/admin/transaksi/cetak', 'LaporanController@cetakAdminDataTransaksi')->name('cetakAdminDataTransaksi');
