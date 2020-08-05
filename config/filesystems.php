@@ -66,6 +66,12 @@ return [
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
+        'orderjadi' => [
+            'driver' => 'local',
+            'root' => public_path() . '/uploads/orderjadi',
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
         'image' => [
             'driver' => 'local',
             'root' => public_path() . '/uploads/image',

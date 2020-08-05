@@ -17,23 +17,27 @@
                     </div>
 
                     <div class="col-lg-8 col-8">
+                        <form action="/admin/transaksi/cetak">
+
                         <div class="row">
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="dariLelang" class="form-control-label text-white">Dari</label>
-                                    <input class="form-control" type="date" id="dariLelang" name="dariLelang">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="dariLelang" class="form-control-label text-white">Dari</label>
+                                        <input class="form-control" type="date" id="dariLelang" name="awal">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="sampaiLelang" class="form-control-label text-white">Sampai</label>
-                                    <input class="form-control" type="date" id="sampaiLelang" name="sampaiLelang">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sampaiLelang" class="form-control-label text-white">Sampai</label>
+                                        <input class="form-control" type="date" id="sampaiLelang" name="akhir">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-2 mt-auto mb-auto">
-                                <a href="/admin/transaksi/cetak" class="btn btn-md btn-neutral">Cetak</a>
-                            </div>
+                                <div class="col-lg-2 mt-auto mb-auto">
+                                    <button type="submit" class="btn btn-md btn-neutral">Cetak</button>
+                                </div>
                         </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

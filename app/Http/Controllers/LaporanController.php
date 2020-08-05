@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,17 +12,15 @@ class LaporanController extends Controller
 {
     public function adminDataTransaksi(Request $request)
     {
-//        $caridata = $request->caridata;
-//        $status = $request->status;
-//        $mitra = mitraModel::where('status', 'LIKE', '%' . $status . '%')
-//            ->where(function ($q) use ($caridata) {
-//                $q->where('username', 'LIKE', '%' . $caridata . '%')
-//                    ->orwhere('email', 'LIKE', '%' . $caridata . '%')
-//                    ->orwhere('noHp', 'LIKE', '%' . $caridata . '%')
-//                    ->orwhere('alamat', 'LIKE', '%' . $caridata . '%');
-//            })
-//            ->get();
-        return view('admin.transaksi.cetak')->with(['mitra' => "datanya"]);
+//        $fawal = DateTime::createFromFormat('m/d/Y', );
+//        $fakhir = DateTime::createFromFormat('m/d/Y', $request->get('akhir'));
+        $awal = $request->get('awal');
+        $akhir = $request->get('akhir');
+        $transaksi = Transaction::whereBetween('created_at',[$awal,$akhir])->with(['lastPayment','cart.product','user'])->get();
+        $data['awal'] = $awal;
+        $data['akhir'] = $akhir;
+        $data['transaksi'] = $transaksi;
+        return view('admin.transaksi.cetak')->with($data);
     }
 
     public function cetakAdminDataTransaksi(Request $request)
@@ -29,6 +29,7 @@ class LaporanController extends Controller
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($this->adminDataTransaksi($request))->setPaper('b4','potrait');
         return $pdf->stream();
+//        return $this->adminDataTransaksi($request);
     }
 
 //USER

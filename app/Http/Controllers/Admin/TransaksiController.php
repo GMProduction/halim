@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helper\CustomController;
+use App\Models\Carts;
 use App\Models\Payment;
 use App\Models\Transaction;
 use Illuminate\Support\Arr;
@@ -38,7 +39,17 @@ class TransaksiController extends CustomController
                 }
                 $this->update(Payment::class, $data);
                 return redirect()->back()->with(['success' => 'success']);
-            }else{
+            }elseif ($this->request->get('action') == 'jadi'){
+                $image = $this->generateImageName('gambar');
+                $data = [
+                    'url_jadi' => $image
+                ];
+                $this->uploadImage('gambar', $image, 'orderjadi');
+                $this->update(Carts::class, $data);
+
+                return redirect()->back()->with(['success' => 'success']);
+
+            }  else{
                 $this->update(Transaction::class, $data);
                 return redirect()->back()->with(['success' => 'success']);
             }
