@@ -37,6 +37,7 @@
                 <a class="nav-item nav-link text-sm ml-3" href="/kontak">Kontak Kami</a>
 
                 @auth()
+                    <a class="nav-item nav-link text-sm text-warning ml-0" style="font-weight: bold" href="/cart">Keranjang</a>
                     <a class="nav-item nav-link text-sm ml-7 btn btn-outline-warning" style="font-weight: bold" href="/user">Dashboard</a>
                     <a class="nav-item nav-link text-sm text-warning ml-0" href="/logout">Logout</a>
                 @endauth
@@ -58,14 +59,14 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">Big Ads marketplace iklan website termurah.</p>
+                    <p class="text-justify">Pesan Kardus di bigger yuk, bisa custom.</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                     <h6>Quick Links</h6>
                     <ul class="footer-links">
-                        <li><a href="http://scanfcode.com/about/">Home</a></li>
-                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/kontak">Contact Us</a></li>
 
                     </ul>
                 </div>

@@ -13,7 +13,7 @@
     <section class="container mt-5">
         <div class="row">
             <div class="col-6">
-                <img src="{{asset('/uploads/image')}} / {{ $product->url }}"
+                <img src="{{asset('/uploads/image')}}/{{ $product->url }}"
                      style="height: 300px; width: 100%; object-fit: cover">
             </div>
 
