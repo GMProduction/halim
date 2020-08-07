@@ -56,6 +56,7 @@ class TransactionController extends CustomController
     {
         try {
             $data = [
+                'user_id' => auth()->id(),
                 'no_transaksi' => 'TR-' . \date('YmdHis'),
                 'nominal' => $this->postField('nominal'),
                 'status' => '0',

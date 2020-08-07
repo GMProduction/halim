@@ -54,6 +54,12 @@
                                                             <th scope="col" class="sort text-center"
                                                                 data-sort="completion">File Jadi
                                                             </th>
+                                                            <th scope="col" class="sort text-center"
+                                                                data-sort="completion">Status
+                                                            </th>
+                                                            <th scope="col" class="sort text-center"
+                                                                data-sort="completion">Action
+                                                            </th>
                                                         </tr>
                                                         </thead>
                                                         <tbody class="list">
@@ -66,7 +72,9 @@
                                                                 </td>
                                                                 <td class="text-center"> {{ $v->product->nama}}</td>
                                                                 <td class="text-center">{{ $v->qty }} pcs</td>
-                                                                <td class="text-center"> Rp {{ number_format($v->harga, 0, ',', '.')}},-</td>
+                                                                <td class="text-center">
+                                                                    Rp {{ number_format($v->harga, 0, ',', '.')}},-
+                                                                </td>
                                                                 <td class="text-center"><a
                                                                         style="height: 100px; width: 100px; object-fit: cover"
                                                                         href="{{asset('/uploads/order')}}/{{ $v->url }}"
@@ -84,6 +92,17 @@
                                                                             src="{{asset('/uploads/order')}}/{{ $v->url }}"
                                                                             style="height: 100px; width: 100px; object-fit: cover">
                                                                     </a></td>
+                                                                <td class="text-center">
+                                                                    <a>Menunggu / ACC / Revisi</a>
+                                                                </td>
+                                                                <td class="text-center"><a
+                                                                        class="btn btn-sm btn-primary text-white">
+                                                                        ACC Design
+                                                                    </a>
+                                                                    <a class="btn btn-sm btn-warning text-white">
+                                                                        Revisi
+                                                                    </a>
+                                                                </td>
                                                             </tr>
                                                         @endforeach
                                                         </tbody>
@@ -110,7 +129,7 @@
                                                     Pesan</label>
                                                 <input type="text" id="tanggalPinjam" name="tanggalPinjam" readonly
                                                        class="form-control"
-                                                                                                           value="{{ $trans->created_at }}"
+                                                       value="{{ $trans->created_at }}"
                                                 >
                                             </div>
                                         </div>
@@ -142,7 +161,7 @@
                                                 <label class="form-control-label" for="status">Status</label>
                                                 <input type="text" id="status" name="status" readonly
                                                        class="form-control"
-                                                                                                           value="{{ $status }}"
+                                                       value="{{ $status }}"
                                                 >
                                             </div>
                                         </div>
@@ -152,7 +171,7 @@
                                                 <label class="form-control-label" for="total">Total Harga</label>
                                                 <input type="text" id="total" name="total" readonly
                                                        class="form-control"
-                                                                                                           value="Rp {{ number_format($trans->nominal, 0, ',', '.') }}"
+                                                       value="Rp {{ number_format($trans->nominal, 0, ',', '.') }}"
                                                 >
                                             </div>
                                         </div>

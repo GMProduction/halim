@@ -41,7 +41,7 @@ Route::get('/admin/user', 'Admin\UserController@index');
 
 //USER
 Route::get('/user', 'Main\MainController@dashboard');
-Route::get('/user/pesanan', 'Main\TransactionController@pageTransaksi');
+Route::get('/user/transaksi', 'Main\TransactionController@pageTransaksi');
 Route::get('/user/pesanan/{id}', 'Main\TransactionController@detailHistory');
 Route::get('/user/profil', 'Main\MainController@profile');
 Route::post('/user/profil/update', 'Main\MainController@updateProfile');

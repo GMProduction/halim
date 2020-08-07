@@ -58,7 +58,6 @@
                                 <th scope="col" class="sort" data-sort="status">Tanggal</th>
                                 <th scope="col" class="sort" data-sort="status">Pembayaran</th>
                                 <th scope="col" class="sort" data-sort="status">Status</th>
-                                <th scope="col" class="sort" data-sort="status">Jumlah Kardus</th>
                                 <th scope="col" class="sort" data-sort="status">Total Harga</th>
                                 <th scope="col" class="sort" data-sort="status">Action</th>
                             </tr>

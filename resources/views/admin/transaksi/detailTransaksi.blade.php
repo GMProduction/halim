@@ -102,6 +102,9 @@
                                                                 data-sort="completion">File Jadi
                                                             </th>
                                                             <th scope="col" class="sort text-center"
+                                                                data-sort="completion">Status
+                                                            </th>
+                                                            <th scope="col" class="sort text-center"
                                                                 data-sort="completion">Action
                                                             </th>
                                                         </tr>
@@ -156,6 +159,9 @@
                                                                             src="{{asset('/uploads/orderjadi')}}/{{$t->url_jadi}}"
                                                                             style="height: 100px; width: 100px; object-fit: cover">
                                                                     </a></td>
+                                                                <td class="text-center">
+                                                                    <a>Menunggu / ACC / Revisi</a>
+                                                                </td>
                                                                 <td>
                                                                     <button type="button" class="btn btn-warning mt-0"
                                                                             data-toggle="modal"
