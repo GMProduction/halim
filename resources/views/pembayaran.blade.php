@@ -142,13 +142,13 @@
                     <div class="card text-center p-3 ">
                         <img class="ml-auto mr-auto" src="{{asset('assets/img/bank/bca.png')}}" style="width: 150px;">
                         <h4 class="mb-1">No. rek: 7997971237</h4>
-                        <h5>Holder Name: Candra</h5>
+                        <h5>Holder Name: Halim</h5>
                     </div>
 
                     <div class="card text-center p-3 ">
                         <img class="ml-auto mr-auto" src="{{asset('assets/img/bank/bri.png')}}" style="width: 150px;">
                         <h4 class="mb-1">No. rek: 1317997971237</h4>
-                        <h5>Holder Name: Candra</h5>
+                        <h5>Holder Name: Halim</h5>
                     </div>
                 </div>
 

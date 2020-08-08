@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>admin</title>
+    <title>Bigger | Aplikasi pemesanan kardus</title>
     <!-- Favicon -->
 {{--    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">--}}
 <!-- Fonts -->
@@ -77,7 +77,7 @@
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-                        <a href="#">Candra</a>.
+                        <a href="#">Halim</a>.
                     </p>
                 </div>
 
