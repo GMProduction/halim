@@ -178,8 +178,8 @@
                                                                             <div class="modal-content">
                                                                                 <form method="post" enctype="multipart/form-data">
                                                                                     @csrf
-                                                                                    <input id="id" name="id" value="{{$t->id}}">
-                                                                                    <input id="id" name="action" value="jadi">
+                                                                                    <input id="id" name="id" value="{{$t->id}}" hidden>
+                                                                                    <input id="id" name="action" value="jadi" hidden>
                                                                                     <div class="modal-header">
                                                                                         <h5 class="modal-title"
                                                                                             id="exampleModalLongTitle">Kirim
