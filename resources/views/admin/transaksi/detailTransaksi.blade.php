@@ -160,7 +160,7 @@
                                                                             style="height: 100px; width: 100px; object-fit: cover">
                                                                     </a></td>
                                                                 <td class="text-center">
-                                                                    <a>Menunggu / ACC / Revisi</a>
+                                                                    {{$t->status == '0' ? 'Menunggu' : ($t->status == '1' ? 'ACC' : 'Revisi')}}
                                                                 </td>
                                                                 <td>
                                                                     <button type="button" class="btn btn-warning mt-0"

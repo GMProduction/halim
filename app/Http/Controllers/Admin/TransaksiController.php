@@ -42,7 +42,8 @@ class TransaksiController extends CustomController
             }elseif ($this->request->get('action') == 'jadi'){
                 $image = $this->generateImageName('gambar');
                 $data = [
-                    'url_jadi' => $image
+                    'url_jadi' => $image,
+                    'status' => '0'
                 ];
                 $this->uploadImage('gambar', $image, 'orderjadi');
                 $this->update(Carts::class, $data);
