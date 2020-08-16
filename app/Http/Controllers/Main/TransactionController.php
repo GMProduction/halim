@@ -43,6 +43,7 @@ class TransactionController extends CustomController
         }
     }
 
+
     public function cartPage()
     {
         $carts = Carts::with('product')->where('transactions_id', '=', null)->where('user_id', '=', auth()->id())->get();
@@ -109,4 +110,21 @@ class TransactionController extends CustomController
         $trans = Transaction::with('cart.product')->where('id', '=', $id)->firstOrFail();
         return view('user.transaksi.detailTransaksi')->with(['trans' => $trans]);
     }
+
+    public function accDesign($id){
+        $data = [
+            'status' => '1'
+        ];
+        $this->update(Carts::class, $data);
+        return redirect()->back()->with(['success' => 'success']);
+    }
+
+    public function revisidesign($id){
+        $data = [
+            'status' => '2'
+        ];
+        $this->update(Carts::class, $data);
+        return redirect()->back()->with(['success' => 'success']);
+    }
+
 }

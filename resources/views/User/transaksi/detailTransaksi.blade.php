@@ -86,20 +86,22 @@
 
                                                                 <td class="text-center"><a
                                                                         style="height: 100px; width: 100px; object-fit: cover"
-                                                                        href="{{asset('/uploads/order')}}/{{ $v->url }}"
+                                                                        href="{{asset('/uploads/orderjadi')}}/{{ $v->url_jadi }}"
                                                                         target="_blank">
                                                                         <img
-                                                                            src="{{asset('/uploads/order')}}/{{ $v->url }}"
+                                                                            src="{{asset('/uploads/orderjadi')}}/{{ $v->url_jadi }}"
                                                                             style="height: 100px; width: 100px; object-fit: cover">
                                                                     </a></td>
                                                                 <td class="text-center">
-                                                                    <a>Menunggu / ACC / Revisi</a>
+                                                                    <a>{{$v->status == '0' ? 'Menunggu acc user' : ($v->status == '1' ? 'ACC' : 'Revisi')}}</a>
                                                                 </td>
                                                                 <td class="text-center"><a
-                                                                        class="btn btn-sm btn-primary text-white">
+                                                                        onclick="faccdesign({{$v->id}})"
+                                                                        class="btn btn-sm btn-primary text-white accdesign  {{$v->status == '1' ? 'd-none' : ''}}">
                                                                         ACC Design
                                                                     </a>
-                                                                    <a class="btn btn-sm btn-warning text-white">
+                                                                    <a onclick="frevisidesign({{$v->id}})"
+                                                                        class="btn btn-sm btn-warning text-white revisidesign {{$v->status == '1' ? 'd-none' : ''}}">
                                                                         Revisi
                                                                     </a>
                                                                 </td>
@@ -203,5 +205,58 @@
 
 @section('script')
 
+<script>
 
+    function faccdesign(id){
+
+        Swal.fire({
+            title: 'Info',
+            text: 'Apakah anda yakin menerima design kardusnya ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal'
+        }).then(async (result) => {
+            if (result.value) {
+                let data = {
+                    '_token': '{{csrf_token()}}',
+                    'status': "1",
+                    'id': id
+                };
+                console.log(data);
+                let get = await $.post('/user/transaksi/detailpesanan/accdesign/'+id, data);
+                console.log(get);
+                window.location.reload();
+            }
+        })
+    }
+
+    function frevisidesign(id){
+
+        Swal.fire({
+            title: 'Info',
+            text: 'Apakah anda yakin revisi design kardusnya ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal'
+        }).then(async (result) => {
+            if (result.value) {
+                let data = {
+                    '_token': '{{csrf_token()}}',
+                    'status': "2",
+                    'id': id
+                };
+                console.log(data);
+                let get = await $.post('/user/transaksi/detailpesanan/revisidesign/'+id, data);
+                console.log(get);
+                window.location.reload();
+            }
+        })
+    }
+</script>
 @endsection

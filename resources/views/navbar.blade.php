@@ -35,6 +35,7 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link text-sm ml-3 active" href="/">Beranda <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link text-sm ml-3" href="/kontak">Kontak Kami</a>
+                <a class="nav-item nav-link text-sm ml-3" href="/carapesan">Cara Pesan</a>
 
                 @auth()
                     <a class="nav-item nav-link text-sm text-warning ml-0" style="font-weight: bold" href="/cart">Keranjang</a>

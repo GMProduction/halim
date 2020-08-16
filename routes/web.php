@@ -46,6 +46,13 @@ Route::get('/user/pesanan/{id}', 'Main\TransactionController@detailHistory');
 Route::get('/user/profil', 'Main\MainController@profile');
 Route::post('/user/profil/update', 'Main\MainController@updateProfile');
 
+Route::post('/user/transaksi/detailpesanan/accdesign/{id}', 'Main\TransactionController@accDesign');
+Route::post('/user/transaksi/detailpesanan/revisidesign/{id}', 'Main\TransactionController@revisidesign');
+
+Route::get('/carapesan', function () {
+    return view('carapesan');
+});
+
 Route::get('/detail', function () {
     return view('detail');
 });

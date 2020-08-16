@@ -160,7 +160,7 @@
                                                                             style="height: 100px; width: 100px; object-fit: cover">
                                                                     </a></td>
                                                                 <td class="text-center">
-                                                                    {{$t->status == '0' ? 'Menunggu' : ($t->status == '1' ? 'ACC' : 'Revisi')}}
+                                                                    {{$t->status == '0' ? 'Menunggu acc user' : ($t->status == '1' ? 'ACC' : 'Revisi')}}
                                                                 </td>
                                                                 <td>
                                                                     <button type="button" class="btn btn-warning mt-0"
@@ -176,7 +176,7 @@
                                                                         <div class="modal-dialog modal-dialog-centered"
                                                                              role="document">
                                                                             <div class="modal-content">
-                                                                                <form method="post" enctype="multipart/form-data">
+                                                                                <form method="post" enctype="multipart/form-data" >
                                                                                     @csrf
                                                                                     <input id="id" name="id" value="{{$t->id}}" hidden>
                                                                                     <input id="id" name="action" value="jadi" hidden>
