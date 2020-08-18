@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,11 @@ class LaporanController extends Controller
 //        $fakhir = DateTime::createFromFormat('m/d/Y', $request->get('akhir'));
         $awal = $request->get('awal');
         $akhir = $request->get('akhir');
-        $transaksi = Transaction::whereBetween('created_at',[$awal,$akhir])->with(['lastPayment','cart.product','user'])->get();
+
+        $date = Carbon::createFromFormat('Y-m-d', $request->get('akhir'));
+        $ahkirplus = $date->addDays(1);
+
+        $transaksi = Transaction::whereBetween('created_at',[$awal,$ahkirplus])->with(['lastPayment','cart.product','user'])->get();
         $data['awal'] = $awal;
         $data['akhir'] = $akhir;
         $data['transaksi'] = $transaksi;

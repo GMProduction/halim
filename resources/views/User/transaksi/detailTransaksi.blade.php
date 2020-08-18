@@ -183,10 +183,10 @@
                                         <!-- Description -->
                                         <div class="col-12 text-right">
                                             <a type="submit"
-                                               href="https://wa.me/6282325612941?text=Saya%20ingin%20dengan%20menanyakan%20pesanan"
+                                               href="https://wa.me/6285728870971?text=Saya%20ingin%20dengan%20menanyakan%20pesanan"
                                                class="btn btn-lg btn-primary">Upload Bukti Pembayaran</a>
                                             <a type="submit"
-                                               href="https://wa.me/6282325612941?text=Saya%20ingin%20dengan%20menanyakan%20pesanan"
+                                               href="https://wa.me/6285728870971?text=Saya%20ingin%20dengan%20menanyakan%20pesanan"
                                                class="btn btn-lg btn-success">Contact Admin</a>
                                         </div>
                                     </div>

@@ -32,16 +32,16 @@
                             <div class="text-left">
                                 <p class="mb-1">Nama</p>
                                 <h6 class="h3 mb-4">
-                                    {{ $user->no_identitas }}
+                                    {{ $user->nama }}
                                 </h6>
                                 <p class="mb-1">email</p>
                                 <h6 class="h3 mb-4">
-                                    {{ $user->nama_pemohon }}
+                                    {{ $user->email }}
                                 </h6>
 
                                 <p class="mb-1">Phone</p>
                                 <h6 class="h3 mb-4">
-                                    {{ $user->tempat_lahir }}
+                                    {{ $user->phone }}
                                 </h6>
 
                                 <p class="mb-1">Alamat</p>
