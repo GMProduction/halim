@@ -91,10 +91,11 @@
                                             @case('1')
                                             Di Terima
                                             @break
-                                            @case('2')
+                                            @case('3')
                                             Di Tolak
                                             @break
                                             @default
+                                            Di Tolak
                                             @break
                                         @endswitch
                                     </td>

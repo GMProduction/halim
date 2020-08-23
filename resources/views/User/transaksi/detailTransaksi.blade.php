@@ -150,12 +150,13 @@
                                                 $status = "Di Terima"
                                             @endphp
                                             @break
-                                            @case('2')
+                                            @case('3')
                                             @php
                                                 $status = "Di Tolak"
                                             @endphp
                                             @break
                                             @default
+                                            $status = "Di Tolak"
                                             @break
                                         @endswitch
                                         <div class="col-lg-12">
