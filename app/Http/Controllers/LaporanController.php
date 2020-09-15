@@ -17,13 +17,17 @@ class LaporanController extends Controller
 //        $fakhir = DateTime::createFromFormat('m/d/Y', $request->get('akhir'));
         $awal = $request->get('awal');
         $akhir = $request->get('akhir');
+        $status = $request->get('status');
+        $statusstring = $request->get('statusstring');
 
         $date = Carbon::createFromFormat('Y-m-d', $request->get('akhir'));
         $ahkirplus = $date->addDays(1);
 
-        $transaksi = Transaction::whereBetween('created_at',[$awal,$ahkirplus])->with(['lastPayment','cart.product','user'])->get();
+        $transaksi = Transaction::where("status","LIKE",$status)->whereBetween('created_at',[$awal,$ahkirplus])->with(['lastPayment','cart.product','user'])->get();
         $data['awal'] = $awal;
         $data['akhir'] = $akhir;
+        $data['status'] = $status;
+        $data['statusstring'] = $statusstring;
         $data['transaksi'] = $transaksi;
         return view('admin.transaksi.cetak')->with($data);
     }

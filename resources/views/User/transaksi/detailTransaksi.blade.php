@@ -187,7 +187,7 @@
                                                href="https://wa.me/6285728870971?text=Saya%20ingin%20dengan%20menanyakan%20pesanan"
                                                class="btn btn-lg btn-primary">Upload Bukti Pembayaran</a>
                                             <a type="submit"
-                                               href="https://wa.me/6285728870971?text=Saya%20ingin%20dengan%20menanyakan%20pesanan"
+                                               href="https://wa.me/6285728870971?text=Saya%20ingin%20dengan%20menanyakan%20pesanan%20dengan%20kode%20{{$trans->id}}"
                                                class="btn btn-lg btn-success">Contact Admin</a>
                                         </div>
                                     </div>

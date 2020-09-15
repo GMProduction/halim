@@ -31,6 +31,8 @@
 <div style="width:100%">
     <h4 class="text-center">LAPORAN TRANSAKSI</h4>
     <p class="text-center text-black-50">{{$awal}} - {{$akhir}}</p>
+    <p class="text-center text-black-50">status: {{$statusstring}}</p>
+
 </div>
 <br>
 <br>

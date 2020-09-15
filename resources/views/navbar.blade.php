@@ -54,6 +54,7 @@
         @yield('content')
     </div>
 
+     <a class="whats-app" href="https://wa.me/6285728870971"><img src="{{asset('assets/img/whatsapp.png')}}" style="width: 2em"></img></a>
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">

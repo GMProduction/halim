@@ -45,8 +45,15 @@
             <div class="col">
                 <div class="card">
                     <!-- Card header -->
-                    <div class="card-header border-0">
+                    <div class="card-header border-0 d-flex justify-content-between" >
                         <h3 class="mb-0">Tabel Transaksi</h3>
+                        <div class="form-group">
+                            <label for="bahanKardus">Bahan Kardus</label>
+                            <select class="form-control" id="bahanKardus" name="bahan">
+                                <option value="glossy">Glossy</option>
+                                <option value="karton">Karton</option>
+                            </select>
+                        </div>
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">

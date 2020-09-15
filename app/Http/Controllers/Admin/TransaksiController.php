@@ -6,6 +6,7 @@ use App\Helper\CustomController;
 use App\Models\Carts;
 use App\Models\Payment;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 /**
@@ -19,8 +20,8 @@ class TransaksiController extends CustomController
         parent::__construct();
     }
 
-    public function index(){
-        $transaksi = Transaction::with(['lastPayment','cart.product','user'])->get();
+    public function index(Request $request){
+        $transaksi = Transaction::with(['lastPayment','cart.product','user'])->where("status","LIKE", $request->get("status"))->orderBy("created_at","DESC")->get();
 //        return $transaksi->toArray();
         return view('admin.transaksi.transaksi')->with(['transaksi' => $transaksi]);
     }
